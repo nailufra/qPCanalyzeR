@@ -13,7 +13,7 @@ rm(list=ls())
 # 0.1.1) name of your experiment (required for output directory) [string]
 experimentName <- "my_test"
 # 0.1.2) specify your working directory (directory where results are exported to) (e.g. "/home/user/.../") [string]
-setwd("/home/julian/")
+setwd("/path/to/files")
 # 0.1.3) number of 384-well plates used in this experiment (required for plate input) [integer]
 totalPlateCount <- 1
 # 0.1.4) does your experiment has different timepoints (e.g. harvest1, harvest2 etc.)? -> then set TRUE, else FALSE [boolean]
@@ -45,16 +45,7 @@ firstTimePoint <- "E2"
 # Make sure it is written exactly as in your GenesPlateView file (e.g. "PP2A") [string]
 ignoreGenes <- c()
 # 0.2.2) Set plotting order of samples (default: alphabetical order)
-plottingOrder <- c("35S:miR165",
-                   "35S:ZPR3",
-                   "Col-0",
-                   "max2-1",
-                   "max2-1/35S:miR165",
-                   "max2-1/35S:ZPR3",
-                   "max2-1/rev10d",
-                   "max2-1/rev5",
-                   "rev10d",
-                   "rev5")
+plottingOrder <- c()
 
 # 0.2.3) size of plots
 pointSize <- 2.5
