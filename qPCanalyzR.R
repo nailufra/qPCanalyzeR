@@ -1,12 +1,8 @@
 ############ qPCanalyzeR #####################
-###### V. 0.0
 ###### https://github.com/nailufra/qPCanalyzeR
 ###### Only for non-commercial use
 
 ######################################################### BEGIN: USER INPUT AREA #################################################################
-
-rm(list=ls())
-
 # 0) SETTING PARAMETERS
 
 # 0.1) MANDATORY PARAMETERS
