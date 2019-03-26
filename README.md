@@ -1,9 +1,9 @@
 # qPCanalyzeR
 
-qPCanalyzeR is a tool for automated qPCR anaylsis written in R.
+qPCanalyzeR is a tool for automated gene expression anaylsis based on BioRad CFX384 output files.
 
-Providing BioRad plate view output file, your pipetting scheme and few additional parameters allows qPCanalyzeR to calculate basic statistics on your data, create plots and present you the results in a clear output format without further adjustment of your data in the code.
+By providing BioRad plate view output file, your pipetting scheme and few additional parameters, qPCanalyzeR visualizes information about your input selection, analyzes your data (e.g. relative expression or ΔΔCt) and - based on this - creates overview tables and plots as finals output. 
 
-By specifying your input informations, qPCanalyzeR can combine multiple 384-well plates, various biological and technical replicates, as well as time-course experiment within one single analysis. 
+If specified, qPCanalyzeR can combine multiple 384-well plates, various biological and technical replicates, as well as time-course experiment within one single analysis. 
 
-See tutorial section in the manual for further information. 
+Tutorial (coming soon...):
