@@ -3,14 +3,6 @@
 ###### Only for non-commercial use
 
 ######################################################### BEGIN: USER INPUT AREA #################################################################
-<<<<<<< HEAD
-
-rm(list=ls())
-=======
-# 0) SETTING PARAMETERS
->>>>>>> 626b48950f763778b022ac217ec48ed120a17aa0
-
-# 0.1) MANDATORY PARAMETERS
 
 #name of your experiment (required for output directory) [string]
 experiment_name <- "my_test"
