@@ -7,45 +7,40 @@
 
 rm(list=ls())
 
-# 0) SETTING PARAMETERS
-
 # 0.1) MANDATORY PARAMETERS
-# 0.1.1) name of your experiment (required for output directory) [string]
+
+#name of your experiment (required for output directory) [string]
 experiment_name <- "my_test"
-# 0.1.2) specify your working directory (directory where results are exported to) (e.g. "/home/user/.../") [string]
-setwd("/path/to/files")
-# 0.1.3) number of 384-well plates used in this experiment (required for plate input) [integer]
+
+#specify your working directory (directory where results are exported to) (e.g. "/home/user/.../") [string]
+setwd("/home/julian/pCloudDrive//qPCanalyzeR/qPCanalyzer_testdata/one_plate/timecourse_biolrep/")
+
+#number of 384-well plates used in this experiment (required for plate input) [integer]
 total_plate_count <- 1
-# 0.1.4) does your experiment has different time_points (e.g. harvest1, harvest2 etc.)? -> then set TRUE, else FALSE [boolean]
-is_time_exp <- TRUE
-# 0.1.5) does your experiment has several biological (NOT technical!) replicates? -> then set TRUE, else FALSE [boolean]
-biol_replicates <- FALSE
-# 0.1.6) specify the gene treated as housekeeping gene, i.e. expression level of this gene is set to 100%.
-# Expression of other genes is set in relation to it. 
-# Make sure it is written exactly as in your GenesPlateView file (e.g. "ACTIN") [string]
-housekeeping_gene <- "ACTIN"   
-# 0.1.7) specifiy samples that should be ignored in the gene expression analysis, e.g. your negative control.
-# You can specify multiple samples by using c("Sample1","Sample2",...)
-# Make sure it is written exactly as in your SamplesPlateView file (e.g. "H2O") [string]
+
+# specify the gene treated as housekeeping gene, i.e. expression level of this gene is set to 100%.
+# Expression of other genes is set in relation to it. Make sure it is written exactly as in your GenesPlateView file (e.g. "ACTIN") [string]
+housekeeping_gene <- "HK"   
 
 #ignore_samples <- c("H2O")
 ignore_samples <- c("H2O")
 
-# 0.1.8) Comparator for ddCt
-comparator <- "Col-0"
+#Comparator for ddCt
+comparator <- "Control"
 
-# 0.1.9) first time_point for ddCt
-first_time_point <- "E2"
+#first time_point for ddCt (when using timecourse experiments)
+first_time_point <- "1"
 
-# 0.2) OPTIONAL PARAMETERS
-# 0.2.1) Name samples that should be ignored in analysis
+# OPTIONAL PARAMETERS
+# Name samples that should be ignored in analysis
 # You can specify multiple samples by using c("Gene1","Gene2",...)
 # Make sure it is written exactly as in your GenesPlateView file (e.g. "PP2A") [string]
 ignore_genes <- c()
-# 0.2.2) Set plotting order of samples (default: alphabetical order)
+
+#Set plotting order of samples (default: alphabetical order)
 plotting_order <- c()
 
-# 0.2.3) size of plots
+# size of plots
 point_size <- 2.5
 
 ######################################################### END: USER INPUT AREA #################################################################
@@ -54,6 +49,10 @@ point_size <- 2.5
 ####################################################################
 ### PRESS STRG + A, then STRG + ENTER and check output directory ###
 ####################################################################
+
+#setting parameters (will be adapted below based on input)
+is_time_exp <- FALSE
+biol_replicates <- FALSE
 
 
 # 1) LOADING REQUIRED PACKAGES
@@ -83,11 +82,11 @@ create_input <- function(nameOut,sepa){
   }
   assign(as.list(match.call())[[2]],x,envir = .GlobalEnv)
 }
-# 3.1) provide BioRad output files (Plate View Results.csv)
-create_input("plate_input",";")
-# 3.2) provide your pipetting scheme: (c)DNA (Plate View)
+# provide BioRad output files (Plate View Results.csv)
+create_input("plate_input",",")
+# provide your pipetting scheme: (c)DNA (Plate View)
 create_input("sample_input",",")
-# 3.3) provide your pipetting scheme: GOIs (PlateView)
+# provide your pipetting scheme: GOIs (PlateView)
 create_input("gene_input",",")
 
 #############################################################
@@ -121,18 +120,18 @@ modify_plate_input()
 # 5) CREATING DATAFRAME 
 ######################################
 create_data_frame <- function(){
-plate_information <<- data.frame(sample_id = seq(1,384*total_plate_count),
-                               field_id = rep(NA,384*total_plate_count),
-                               Row = rep(NA,384*total_plate_count),
-                               Column = rep(NA,384*total_plate_count),
-                               Gene = rep(NA,384*total_plate_count),
-                               input_name = rep(NA,384*total_plate_count),
-                               Samples = rep(NA,384*total_plate_count),
-                               time_point = rep(0,384*total_plate_count),
-                               biol_rep = rep(1,384*total_plate_count),
-                               Plate = rep(0,384*total_plate_count),
-                               Ct = rep(NA,384*total_plate_count),
-                               used_in_analysis = rep(FALSE,384*total_plate_count))
+  plate_information <<- data.frame(sample_id = seq(1,384*total_plate_count),
+                                   field_id = rep(NA,384*total_plate_count),
+                                   Row = rep(NA,384*total_plate_count),
+                                   Column = rep(NA,384*total_plate_count),
+                                   Gene = rep(NA,384*total_plate_count),
+                                   input_name = rep(NA,384*total_plate_count),
+                                   Samples = rep(NA,384*total_plate_count),
+                                   time_point = rep(0,384*total_plate_count),
+                                   biol_rep = rep(1,384*total_plate_count),
+                                   Plate = rep(0,384*total_plate_count),
+                                   Ct = rep(NA,384*total_plate_count),
+                                   used_in_analysis = rep(FALSE,384*total_plate_count))
 }
 create_data_frame()
 ######################################
@@ -140,7 +139,7 @@ create_data_frame()
 
 # 6) FILL DATAFRAME
 ######################################
-# 6.1) field_id,Row,Column,Plate
+# field_id,Row,Column,Plate
 modify_data_frame <- function(){
   counter = 1
   for (z in 1:total_plate_count){
@@ -157,117 +156,79 @@ modify_data_frame <- function(){
 }
 modify_data_frame()
 
-# 6.2) Fill DataFrame with values 
+# Fill DataFrame with values 
 fill_data_frame <- function(your_col,your_input){
   for (z in 1:total_plate_count){
     counter = 1
     for (i in 1:nrow(your_input[[z]])){
       for (j in 1:length(your_input[[z]])){
-          plate_information[counter, your_col] <<- as.character(your_input[[z]][i,j])
-          counter <- counter + 1
-        }
+        plate_information[counter, your_col] <<- as.character(your_input[[z]][i,j])
+        counter <- counter + 1
+      }
     }
   }
   plate_information$Ct <- as.numeric(plate_information$Ct)
   plate_information <<- as.data.frame(plate_information)
 }
 
-# 6.2.1) Ct Values
+# Ct Values
 fill_data_frame("Ct",plate_input)
-# 6.2.2) Samples
+# Samples
 fill_data_frame("input_name",sample_input)
-# 6.2.3) Genes
+# Genes
 fill_data_frame("Gene",gene_input)
 ######################################
 
-###Export information about Ct values using geom_text (geom_label)
-
+# setting factor
 plate_information$Column <- factor(plate_information$Column, levels = c(seq(1,24)))
 
-###with sample name###
-
-ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, colour = Gene)) + 
-       geom_text(label = paste0(plate_information$input_name,"\n",round(plate_information$Ct,2)), size = 2.5, angle = 45) +
-       facet_grid(Row~Column, switch = "y") +
-       ylab("") +
-       scale_colour_brewer(palette = "Dark2") +
-       ggtitle(paste(experiment_name,"\n","Plate Overview: Raw Ct values - Plate",plate_information$Plate)) +
-       
-       theme(axis.text = element_text(size=7, color="black"),
-             plot.title = element_text(hjust = 0.5, size= 15),
-             axis.title.x = element_blank(),
-             axis.text.x = element_blank(),
-             axis.ticks.x = element_blank(),
-             axis.ticks.y = element_blank(),
-             axis.text.y = element_blank(),
-             legend.position = "bottom",
-             legend.title = element_text(size = 8),
-             panel.border = element_rect(color = "black", fill = NA, size = 1))
-
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_CtPlateView.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_CtPlateView.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-####
-
-
-###without sample name###
-
-ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, colour = Gene)) + 
-  geom_text(label = round(plate_information$Ct,2), size = 3.75) +
-  facet_wrap_paginate(~cut:Plate) + 
-  facet_grid(Row~Column, switch = "y") +
-  ylab("") +
-  scale_colour_brewer(palette = "Dark2") +
-  ggtitle(paste(experiment_name,"\n","Plate Overview: Raw Ct values - Plate",plate_information$Plate)) +
-  
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.text.y = element_blank(),
-        legend.position = "bottom",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1))
-
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_CtPlateViewNoSampleNames.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_CtPlateViewNoSampleNames.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-### ###
-
-
-#all fields excluded by user (ignore_samples, ignore_genes) are excluded
+# all fields excluded by user (ignore_samples, ignore_genes) are excluded from analysis
 plate_information <- plate_information %>%
   mutate(used_in_analysis = replace(used_in_analysis, (!Gene %in% ignore_genes) & (!input_name %in% ignore_samples) & !is.na(Gene), TRUE)) %>%
-  as.data.frame() #plate_information
-###
+  as.data.frame()
 
 
-ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, color = used_in_analysis)) + 
-  geom_point(size = 25) +
-  geom_text(label = plate_information$input_name, size = 1, angle = 45, color = "black") +
-  facet_wrap_paginate(~cut:Plate) + 
-  facet_grid(Row~Column, switch = "y") +
-  ylab("") +
-  scale_colour_brewer(palette = "Dark2") +
-  ggtitle(paste(experiment_name,"\n","Samples used for analysis - Plate:",plate_information$Plate)) +
+# 7) PLATE INFORMATION PLOTS
+######################################
+info_plot <- function(usedsamples){
+  {
+    if (!usedsamples){
+      p = ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, colour = Gene)) + 
+          geom_text(label = round(plate_information$Ct,2), size = 3.75)}
+    
+    else{
+      p = ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, fill = used_in_analysis)) + 
+          geom_rect(aes(xmin=0, xmax=max(as.integer(Column)) , ymin=0, ymax=20)) + 
+          geom_text(y=10, label = plate_information$input_name, size = 1, angle = 45, color = "black")}
+    
+  }
   
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.text.y = element_blank(),
-        legend.position = "bottom",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1))
+  p = p + 
+    facet_wrap_paginate(~cut:Plate) + 
+    facet_grid(Row~Column, switch = "y") +
+    ylab("") +
+    scale_colour_brewer(palette = "Dark2") +
+    ggtitle(paste(experiment_name,"\n","Plate Overview: Raw Ct values - Plate",plate_information$Plate)) +
+    
+    theme(axis.text = element_text(size=7, color="black"),
+          plot.title = element_text(hjust = 0.5, size= 15),
+          axis.title.x = element_blank(),
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.text.y = element_blank(),
+          legend.position = "bottom",
+          legend.title = element_text(size = 8),
+          panel.border = element_rect(color = "black", fill = NA, size = 1))
+  
+}
 
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_SamplesUsedForAnalysis.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_SamplesUsedForAnalysis.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
+p1 <- info_plot(FALSE)
+p2 <- info_plot(TRUE)
+############################################################
 
 
-
-# 7) CHECK FOR BIOLOGICAL REPLICATES AND DIFFERNET time_pointS
+# 8) CHECK FOR BIOLOGICAL REPLICATES AND DIFFERNET TIMEPOINTS
 #############################################################
 checkInput <- function(your_frame,row){
   if(is.na(your_frame$input_name[row]) | your_frame$input_name[row] == ignore_samples){
@@ -283,17 +244,23 @@ checkInput <- function(your_frame,row){
     your_frame$Samples[row] <- strsplit(your_frame$input_name[row],"@")[[1]][[1]]
     your_frame$time_point[row] <- strsplit(your_frame$input_name[row],"@")[[1]][[2]]
     your_frame$biol_rep[row] <- substr(strsplit(your_frame$input_name[row],"@")[[1]][[3]],4,10)
+    biol_replicates <<- TRUE
+    is_time_exp <<- TRUE
   }
   
   else if(str_count(your_frame$input_name[row],"@") == 1 & grepl("@Rep",your_frame$input_name[row])){
     your_frame$Samples[row] <- strsplit(your_frame$input_name[row],"@")[[1]][[1]]
     your_frame$biol_rep[row] <- substr(strsplit(your_frame$input_name[row],"@")[[1]][[2]],4,10)
+    biol_replicates <<- TRUE
+    is_time_exp <<- FALSE
   }
   
   else if(str_count(your_frame$input_name[row],"@") == 1 & !grepl("@Rep",your_frame$input_name[row])){
     your_frame$Samples[row] <- strsplit(your_frame$input_name[row],"@")[[1]][[1]]
     your_frame$Samples[row] <- strsplit(your_frame$input_name[row],"@")[[1]][[1]]
     your_frame$time_point[row] <- strsplit(your_frame$input_name[row],"@")[[1]][[2]]
+    biol_replicates <<- FALSE
+    is_time_exp <<- TRUE
   }
   plate_information <<- your_frame
 }       
@@ -307,21 +274,11 @@ for (i in 1:nrow(plate_information)){
 ###removes all rows labelled with NA in "Gene"
 plate_information <- plate_information[!is.na(plate_information$Gene),]
 
-
-##tech_rep
+##get all technical
 plate_information <- plate_information %>%
   group_by(Gene,Samples,time_point, biol_rep, Plate) %>%
   mutate(tech_rep = row_number()) %>%
   as.data.frame()
-
-
-  
-
-#plate_information <- rbind(plate_information, allGenes)
-# plate_information <- plate_information %>%
-#   group_by(Gene) %>%
-#   arrange(Samples,time_point) %>%
-#   as.data.frame()
 
 
 # 9) STATISTICS
@@ -347,133 +304,119 @@ calculate_statistics <- function(){
            dct_mean = ct_mean - filter(., Gene == housekeeping_gene)$ct_mean) %>%
     as.data.frame()
   
-    ##2^-dCT
-    plate_information$log2_dCt <<- 2^-(plate_information$dCt)
-
-
-    ##2^-ddCT
-
-    if(is_time_exp){
-      plate_information <<- plate_information %>%
-        arrange(Gene) %>%
-        group_by(Gene,biol_rep,Samples) %>%
-        mutate(ddCt_by_timepoint = dct_mean - dct_mean[time_point == first_time_point]) %>%
-        as.data.frame()
-    }
-
-
-    if(!is_time_exp){
-      plate_information <<- plate_information %>%
-        group_by(Gene,biol_rep,Samples) %>%
-        mutate(ddCt_by_timepoint = dct_mean - dct_mean[Samples == comparator]) %>%
-        as.data.frame()
-    }
-
-    ### ddct_mean
+  ##2^-dCT
+  plate_information$log2_dCt <<- 2^-(plate_information$dCt)
+  
+  ##ddCt
+  if(is_time_exp){
+    plate_information <<- plate_information %>%
+      group_by(Gene, biol_rep, Samples) %>%
+      mutate(ddCt_by_timepoint = dct_mean - dct_mean[time_point == first_time_point]) %>%
+      as.data.frame()
+    
+    #2^-ddCt_by_timepoint
     plate_information$log2ddCt_by_timepoint <<- 2^-(plate_information$ddCt_by_timepoint)
-
+  }
+      
+  plate_information <<- plate_information %>%
+    group_by(Gene, biol_rep) %>%
+    mutate(ddCt_by_samples = dct_mean - dct_mean[Samples == comparator]) %>%
+    as.data.frame()
+  
+  #2^-ddCt_by_Sample
+  plate_information$log2ddCt_by_sample <<- 2^-(plate_information$ddCt_by_sample)
 }
 calculate_statistics()
 
 
-###PLOTS
-#arrange
+# 10) FINAL PLOTS ###############################################
+
+#removing housekeeping gene
 plotting_frame <- plate_information %>%
   filter(Gene != housekeeping_gene) %>%
   as.data.frame()
 
-plotting_frame$sampletime_point <- paste(plotting_frame$Samples,plotting_frame$time_point,sep="\n")
-
-
-##relative expression
-ggplot(plotting_frame, aes(x = time_point, y = relative_expression_mean, fill = Samples, color = Samples, group = Samples)) + 
-  geom_line(size= 1) + 
-  geom_point(size = 3) +
-  facet_grid(Gene~., scales = "free") +
-  ylab(paste("Relative Expression - (",housekeeping_gene," 100%)",sep="")) +
-  ggtitle(paste(experiment_name)) + 
+#plot based on parameter
+result_plot <- function(plot_type, biol_rep, time_point, facet){
   
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        legend.position = "right",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1))
-
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_relative_expression.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_relative_expression.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-
-
-##relative Expression - by Sample
-ggplot(plotting_frame, aes(x = time_point, y = relative_expression_mean , fill = Samples, color = Samples, group = Samples)) + 
-  geom_line(size= 1) + 
-  geom_point(size = 3) +
-  facet_grid(Gene~Samples, scales = "free") +
-  ylab(paste("Relative Expression - (",housekeeping_gene," 100%)",sep="")) +
-  ggtitle(paste(experiment_name)) +
+  #choose plot type
+  #relative expression
+    if(plot_type == "relExp"){
+      
+      if(!biol_rep & !time_point){
+        {p = ggplot(plotting_frame, aes(x = Samples, y = relative_expression_mean, color = Gene, group = Gene))}
+      }
+    
+      else if(!time_point){
+        {p = ggplot(plotting_frame, aes(x = Samples, y = relative_expression_mean, color = Gene, group=interaction(Gene, biol_rep), shape=biol_rep, linetype=biol_rep))}
+      }
+      
+      else if(!biol_rep){
+        {p = ggplot(plotting_frame, aes(x = time_point, y = relative_expression_mean , fill = Samples, color = Samples, group = interaction(Gene,Samples), linetype=Gene))}
+      }
+      
+      else{
+        {p = ggplot(plotting_frame, aes(x = time_point, y = relative_expression_mean , fill = Samples, color = Samples, group = interaction(Samples, biol_rep, Gene), 
+                                        linetype=biol_rep, shape=Gene))}
+      }
+      
+      p = p + ylab(paste("Relative Expression - (",housekeeping_gene," 100%)",sep=""))
+    }
+    
+  #ddCt
+    else if(plot_type == "ddCt"){
+      if(!biol_rep & !time_point){
+        {p = ggplot(plotting_frame, aes(x = Samples, y = log2ddCt_by_sample, color = Gene, group = Gene))}
+      }
+      
+      else if(!time_point){
+        {p = ggplot(plotting_frame, aes(x = Samples, y = log2ddCt_by_sample, color = Gene, group=interaction(Gene, biol_rep), shape=biol_rep, linetype = biol_rep))}
+      }
+      
+      else if(!biol_rep){
+        {p = ggplot(plotting_frame, aes(x = time_point, y = log2ddCt_by_timepoint, fill = Samples, color = Samples, group = interaction(Gene,Samples), linetype=Gene))}
+      }
+      
+      else{
+        {p = ggplot(plotting_frame, aes(x = time_point, y = log2ddCt_by_timepoint, fill = Samples, color = Samples, group = interaction(Samples, biol_rep, Gene), linetype=biol_rep, shape=Gene))}
+      }
+      
+      p = p + ylab(bquote('2'^-ΔΔCt))
+    } 
   
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        legend.position = "right",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1))
-
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_relative_expression_bySample.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_relative_expression_bySample.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-
-
-###2^-dCt
-ggplot(plotting_frame, aes(x = sampletime_point, y = log2_dCt, fill = Samples)) + 
-  geom_point(size = 5,colour="black",pch=21, size=5) +
-  facet_grid(Gene~Samples, scales = "free") +
-  ylab(bquote('2'^-ΔCt)) +
-  ggtitle(paste(experiment_name)) +
+  #choose faceting
+  if(facet){
+    {p = p + facet_grid(Gene~Samples, scales = "free")}
+  }
   
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        legend.position = "none",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank())
-
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_dCt_time_points.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_dCt_time_points.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
+  #add rest of plot
+  p = p + geom_line(size= 1) + 
+    geom_point(size = 3) +
+    ggtitle(paste(experiment_name)) +
   
-
-###2^-ddCT
-
-
-ggplot(plotting_frame, aes(x = time_point, y = log2ddCt_by_timepoint, fill = Samples, color = Samples, group = Samples)) + 
-  geom_line(size= 1) + 
-  geom_point(size = 3) +
-  facet_grid(Gene~., scales = "free") +
-  ylab(bquote('2'^-ΔΔCt)) +
-  ggtitle(paste(experiment_name)) +
-  
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        legend.position = "right",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1))
-
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_ddCt_time_points.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_ddCt_time_points.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
+    theme(axis.text = element_text(size=7, color="black"),
+          plot.title = element_text(hjust = 0.5, size= 15),
+          legend.position = "right",
+          legend.title = element_text(size = 8),
+          panel.border = element_rect(color = "black", fill = NA, size = 1))
+}
 
 
-##ddCt - by Sample
-ggplot(plotting_frame, aes(x = time_point, y = log2ddCt_by_timepoint, fill = Samples, color = Samples, group = Samples)) + 
-  geom_line(size= 1) + 
-  geom_point(size = 3) +
-  facet_grid(Gene~Samples, scales = "free") +
-  ylab(bquote('2'^-ΔΔCt)) +
-  ggtitle(paste(experiment_name)) +
-  
-  theme(axis.text = element_text(size=7, color="black"),
-        plot.title = element_text(hjust = 0.5, size= 15),
-        legend.position = "right",
-        legend.title = element_text(size = 8),
-        panel.border = element_rect(color = "black", fill = NA, size = 1))
+p3 <- result_plot(plot_type = "relExp", biol_rep = biol_replicates, time_point = is_time_exp, facet = TRUE)
+p4 <- result_plot(plot_type = "relExp", biol_rep = biol_replicates, time_point = is_time_exp, facet = FALSE)
+p5 <- result_plot(plot_type = "ddCt", biol_rep = biol_replicates, time_point = is_time_exp, facet = TRUE)
+p6 <- result_plot(plot_type = "ddCt", biol_rep = biol_replicates, time_point = is_time_exp, facet = FALSE)
 
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_ddCt_time_points_bySample.pdf",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
-ggsave(paste(experiment_name,"_Results/",experiment_name,"_ddCt_time_points_bySample.svg",sep = ""), last_plot(), width = 297, height = 210, units = "mm")
+
+# export plots in given format
+export_plots <- function(plot, name, format){
+  ggsave(paste(experiment_name,"_Results/",experiment_name,"_",name,format,sep = ""), plot, width = 297, height = 210, units = "mm")
+}
+
+export_plots(p1,"plateOverview",".pdf")
+export_plots(p2,"usedSamples",".pdf")
+export_plots(p3,"relExp_facet",".pdf")
+export_plots(p4,"relExp",".pdf")
+export_plots(p5,"ddCt_facet",".pdf")
+export_plots(p6,"ddCt",".pdf")
 
