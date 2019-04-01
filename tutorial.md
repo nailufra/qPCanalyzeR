@@ -9,7 +9,7 @@
   Output file provided by BioRad machine. Make sure that it's <b>comma-delimited</b>.
   
   <h4> Genes </h4>
-  User-created file of 16x24 cells providing information about genes-of-interest (e.g. 'ACTIN') in the corresponding well.
+  User-created file of 16x24 cells providing information about genes-of-interest (e.g. 'ACTIN') in the corresponding well. Wells that do not correspond to any gene, should be labelled with <b>'NA'</b> inside the 16x24 frame. 
   
   <h4> Samples </h4> 
   
