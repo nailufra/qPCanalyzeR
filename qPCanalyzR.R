@@ -2,23 +2,20 @@
 ###### https://github.com/nailufra/qPCanalyzeR
 ###### Only for non-commercial use
 
-#remove old variables
-rm(list=ls())
-
 ######################################################### BEGIN: USER INPUT AREA #################################################################
 
 #name of your experiment (required for output directory) [string]
 experiment_name <- "my_test"
 
 #specify your working directory (directory where results are exported to) (e.g. "/home/user/.../") [string]
-setwd("/home/julian/pCloudDrive//qPCanalyzeR/qPCanalyzer_testdata/two_plates/timecourse_biolrep/")
+setwd("/home/julian/pCloudDrive//qPCanalyzeR/qPCanalyzer_testdata/one_plate/timecourse_biolrep/")
 
 #number of 384-well plates used in this experiment (required for plate input) [integer]
-total_plate_count <- 2
+total_plate_count <- 1
 
 # specify the gene treated as housekeeping gene, i.e. expression level of this gene is set to 100%.
 # Expression of other genes is set in relation to it. Make sure it is written exactly as in your GenesPlateView file (e.g. "ACTIN") [string]
-housekeeping_gene <- "HK"   
+housekeeping_gene <- "HK"
 
 #ignore_samples <- c("H2O")
 ignore_samples <- c("H2O")
@@ -35,23 +32,23 @@ first_time_point <- "1"
 # Make sure it is written exactly as in your GenesPlateView file (e.g. "PP2A") [string]
 ignore_genes <- c()
 
-#Set plotting order of samples (default: alphabetical order)
-plotting_order <- c()
-
 # size of plots
 point_size <- 2.5
+line_size <- 1
+
+# output format (select e.g. ".pdf" or ".svg")
+output_format <- ".pdf"
 
 ######################################################### END: USER INPUT AREA #################################################################
 
 
-####################################################################
-### PRESS STRG + A, then STRG + ENTER and check output directory ###
-####################################################################
+#######################################################
+### MARK CODE BELOW AND RUN IT USING 'STRG + ENTER' ###
+#######################################################
 
 #setting parameters (will be adapted below based on input)
 is_time_exp <- FALSE
 biol_replicates <- FALSE
-
 
 # 1) LOADING REQUIRED PACKAGES
 #################################
@@ -383,7 +380,7 @@ result_plot <- function(plot_type, biol_rep, time_point, facet){
         {p = ggplot(plotting_frame, aes(x = time_point, y = log2ddCt_by_timepoint, fill = Samples, color = Samples, group = interaction(Samples, biol_rep, Gene), linetype=biol_rep, shape=Gene))}
       }
       
-      p = p + ylab(bquote('2'^-ΔΔCt))
+      p = p + ylab(bquote('2'^-ddCt))
     } 
   
   #choose faceting
@@ -392,8 +389,8 @@ result_plot <- function(plot_type, biol_rep, time_point, facet){
   }
   
   #add rest of plot
-  p = p + geom_line(size= 1) + 
-    geom_point(size = 3) +
+  p = p + geom_line(size= line_size) + 
+    geom_point(size = point_size) +
     ggtitle(paste(experiment_name)) +
   
     theme(axis.text = element_text(size=7, color="black"),
@@ -416,15 +413,15 @@ export_plots <- function(plot, name, format){
 }
 
 #export result plots
-export_plots(p3,"relExp_facet",".pdf")
-export_plots(p4,"relExp",".pdf")
-export_plots(p5,"ddCt_facet",".pdf")
-export_plots(p6,"ddCt",".pdf")
+export_plots(p3,"relExp_facet",output_format)
+export_plots(p4,"relExp",output_format)
+export_plots(p5,"ddCt_facet",output_format)
+export_plots(p6,"ddCt",output_format)
 
 #export info plots
 for(i in 1:length(plate_plot)){
-  export_plots(plate_plot[[i]],paste0("plateView_rawCt_plate",i),".pdf")
-  export_plots(used_plot[[i]],paste0("plateView_usedInAnalysis_plate",i),".pdf")
+  export_plots(plate_plot[[i]],paste0("plateView_rawCt_plate",i),output_format)
+  export_plots(used_plot[[i]],paste0("plateView_usedInAnalysis_plate",i),output_format)
 }
 
 #export csv
