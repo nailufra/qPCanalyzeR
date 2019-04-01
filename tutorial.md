@@ -1,6 +1,14 @@
 <h1> Tutorial </h1>
   This short tutorial uses a test data set provided in the directory 'qPCanalyzer_testdata'. 
   
+  <h2> Prerequisites </h2>
+  Make sure you have the following R packages installed:<br>
+  * dplyr <br>
+  * tidyr <br>
+  * ggplot2 <br>
+  * stringr <br>
+  * plotrix
+  
   <h2> Input Files </h2>
   Regardless of the chosen subdirectory you are looking at, you will realize that we always
   have to provide three basic input files in <b>comma-delimited format</b>: <br>
