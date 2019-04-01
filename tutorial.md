@@ -3,6 +3,6 @@
   
   <h2> Input Files </h2>
   Regardless of the chosen subdirectory you are looking at, you will realize that we always
-  have to provide three basic input files in <b>csv format</b>:
+  have to provide three basic input files in <b>csv format</b>: <br>
   - PlateViewResults ()
   
