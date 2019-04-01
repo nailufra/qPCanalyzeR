@@ -4,5 +4,5 @@
   <h2> Input Files </h2>
   Regardless of the chosen subdirectory you are looking at, you will realize that we always
   have to provide three basic input files in <b>csv format</b>: <br>
-  - PlateViewResults: Output file provided by BioRad machine, make sure it's <b>comma-delimited</b>.
+  * PlateViewResults: Output file provided by BioRad machine, make sure it's <b>comma-delimited</b>.
   
