@@ -39,3 +39,6 @@
   If you've finished parameter adjustment, mark the complete code and run it. <br>
   You will be prompted to choose your input files now. If you pre-defined 'total_plate_count' as '1', first prompt will ask for your PlateViewResults.csv, second prompt for Samples.csv and third prompt for Genes.csv. If you pre-defined 2 plates, you will be asked twice for PlateViewResults_1.csv and PlateViewResults_2.csv, then for Samples_1.csv, Samples_2.csv and so on.<br> <br>
   Afterwards, statistical analysis and plotting might take some seconds. You will find results in a subdirectory of your pre-defined working directory. 
+  
+  <h2> qPCanalyzeR output </h2>
+  
