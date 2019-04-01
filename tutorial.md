@@ -54,19 +54,19 @@
   <img src="screenshots/used.png">
   
   <h4> relExp </h4>
-  Expression of genes across different time points and biological replicates in relation to housekeeping gene, which was set to 100%. 
+  Expression of genes across different time points and biological replicates in relation to housekeeping gene which was set to 100%. 
   <img src="screenshots/rel.png">
   
   <h4> relExp_facet </h4>
-  Expression of genes across different time points and biological replicates in relation to housekeeping gene, which was set to 100%, faceted by Sample.
+  Expression of genes across different time points and biological replicates in relation to housekeeping gene which was set to 100%, faceted by Sample.
   <img src="screenshots/rel_facet.png">
   
   <h4> ddCt </h4>
-  Expression of genes across different time points and biological replicates (2^-ddCt) in relation to time point one.
+  Expression of genes across different time points and biological replicates (2^-ddCt) in relation to time point one which was set to 1.
   <img src="screenshots/dd.png">
   
   <h4> ddCt_facet </h4>
-  Expression of genes across different time points and biological replicates (2^-ddCt) in relation to time point one, faceted by Sample.
+  Expression of genes across different time points and biological replicates (2^-ddCt) in relation to time point one which was set to 1, faceted by Sample.
   <img src="screenshots/dd_facet.png">
   
   
