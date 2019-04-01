@@ -16,7 +16,7 @@
   Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well.<br>
   Based on users choice, input has to be further specified: <br>
   * Biological replicates: Specify with @Rep1,@Rep2,..., @RepN (see e.g. '.../biolrep/tc_Samples.csv')<br>
-  <t><b>Important:</b> It has to be named exactly @RepN in order to be recognized as biol. replicate by the program <br>
+    <b>Important:</b> It has to be named exactly @RepN in order to be recognized as biol. replicate by the program <br>
   * TimeCourse: Specifiy with 
   
   
