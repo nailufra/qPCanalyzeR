@@ -42,4 +42,4 @@
   
   <h2> qPCanalyzeR output </h2>
   <h4> plateView_rawCt </h4>
-  ![Screenshot](screenshots/plateView_Ct.png)
+  ![Screenshot](../screenshots/plateView_Ct.png)
