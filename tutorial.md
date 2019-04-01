@@ -41,4 +41,5 @@
   Afterwards, statistical analysis and plotting might take some seconds. You will find results in a subdirectory of your pre-defined working directory named after 'experiment_name'. 
   
   <h2> qPCanalyzeR output </h2>
+  <h4> plateView_rawCt </h4>
   
