@@ -28,7 +28,7 @@
   * neither: Specify by Sample only: WT, mutant1, ... <br> <br>
   <b>Important</b>: Sample labels occurring more than once are considered technical replicates.
   
-  <h2> Parameter Adjustment </h2>
+  <h2> Parameter Adjustment </h2> 
   <h4> mandatory parameters </h4>
   In the input area of the program you have to specify name of experiment, working directory, number of 384-well plates used in this experiment ('total_plate_count'), housekeeping gene (required for further normalization), samples you would like to exclude from you analyses (e.g. negative control, multiple selection possible), comparator (e.g. "WT"), 'first_time_point' (timepoint that should be used for comparison). 'output_format' is required to save your plots in correspoding format. 
   
@@ -41,22 +41,32 @@
   Afterwards, statistical analysis and plotting might take some seconds. You will find results in a subdirectory of your pre-defined working directory named after 'experiment_name'. 
   
   <h2> qPCanalyzeR output </h2>
+  Example: one plate, biological replicate & time course experiment
+  <h4> allInformation </h4>
+  csv file of all cells involved in analysis
+  
   <h4> plateView_rawCt </h4>
+  Informatation about raw Ct values, color-coded by gene
   <img src="screenshots/plate.png"> <br>
   
   <h4> plateView_usedInAnalysis </h4>
+  Information about what wells were used for analysis ("H20") was excluded as negative control
   <img src="screenshots/used.png">
   
   <h4> relExp </h4>
+  Expression of genes across different time points and biological replicates in relation to housekeeping gene, which was set to 100%. 
   <img src="screenshots/rel.png">
   
   <h4> relExp_facet </h4>
+  Expression of genes across different time points and biological replicates in relation to housekeeping gene, which was set to 100%, faceted by Sample.
   <img src="screenshots/rel_facet.png">
   
   <h4> ddCt </h4>
+  Expression of genes across different time points and biological replicates (2^-ddCt) in relation to time point one.
   <img src="screenshots/dd.png">
   
   <h4> ddCt_facet </h4>
+  Expression of genes across different time points and biological replicates (2^-ddCt) in relation to time point one, faceted by Sample.
   <img src="screenshots/dd_facet.png">
   
   
