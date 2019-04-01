@@ -42,21 +42,21 @@
   
   <h2> qPCanalyzeR output </h2>
   <h4> plateView_rawCt </h4>
-  <img src="/qPCanalyzer_testdata/one_plate/timecourse_biolrep/my_test_Results/my_test_plateView_rawCt_plate1.pdf"> <br>
+  <img src="screenshots/plate.png"> <br>
   
   <h4> plateView_usedInAnalysis </h4>
-  <img src="screenshots/usedInAnalysis.png">
+  <img src="screenshots/used.png">
   
   <h4> relExp </h4>
-  <img src="screenshots/relExp.png">
+  <img src="screenshots/rel.png">
   
   <h4> relExp_facet </h4>
-  <img src="screenshots/relExp_facet.png">
+  <img src="screenshots/rel_facet.png">
   
   <h4> ddCt </h4>
-  <img src="screenshots/ddCt.png">
+  <img src="screenshots/dd.png">
   
   <h4> ddCt_facet </h4>
-  <img src="screenshots/ddCt_facet.png">
+  <img src="screenshots/dd_facet.png">
   
   
