@@ -46,7 +46,7 @@
   csv file of all cells involved in analysis
   
   <h4> plateView_rawCt </h4>
-  Informatation about raw Ct values, color-coded by gene
+  Information about raw Ct values, color-coded by gene
   <img src="screenshots/plate.png"> <br>
   
   <h4> plateView_usedInAnalysis </h4>
