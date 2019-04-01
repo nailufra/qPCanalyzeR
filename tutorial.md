@@ -2,6 +2,7 @@
   This short tutorial uses a test data set provided in the directory 'qPCanalyzer_testdata'. 
   
   <h2> Input Files </h2>
-  Regardless of the subdirectory in 'qPCanalyzer_testdata' you are looking at, you will realize that we always
-  have to provide three input files.
+  Regardless of the chosen subdirectory you are looking at, you will realize that we always
+  have to provide three basic input files in <b>csv format</b>:
+  - PlateViewResults ()
   
