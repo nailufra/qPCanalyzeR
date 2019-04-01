@@ -50,7 +50,7 @@
   <img src="screenshots/plate.png"> <br>
   
   <h4> plateView_usedInAnalysis </h4>
-  Information about what wells were used for analysis ("H20") was excluded as negative control
+  Information about what wells were used for analysis ("H20", column 13) was excluded as negative control
   <img src="screenshots/used.png">
   
   <h4> relExp </h4>
