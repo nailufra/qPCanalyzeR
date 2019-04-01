@@ -15,6 +15,6 @@
   <h4> Samples.csv </h4> 
   Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well.<br>
   Based on users choice, input has to be further specified: <br>
-  * Multiple Biological Replicated: WT@Rep1, WT@Rep2, ... (see e.g. 'qPCanalyzer_testdata/one_plate/biolrep/tc_Samples.csv')
+  * Multiple Biological Replicated: WT@Rep1, WT@Rep2, ... (see e.g. '.../biolrep/tc_Samples.csv')
   
   
