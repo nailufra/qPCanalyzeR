@@ -2,9 +2,6 @@
 ###### https://github.com/nailufra/qPCanalyzeR
 ###### Only for non-commercial use
 
-#remove old variables
-rm(list=ls())
-
 ######################################################### BEGIN: USER INPUT AREA #################################################################
 
 #name of your experiment (required for output directory) [string]
