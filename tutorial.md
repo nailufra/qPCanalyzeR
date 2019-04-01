@@ -10,7 +10,7 @@
   
   <h4> Genes.csv </h4>
   User-created file of 16x24 cells providing information about genes-of-interest (e.g. 'ACTIN') in the corresponding well.<br>
-  Wells that do not correspond to any gene, should be labelled with <b>'NA'</b> inside the 16x24 frame. 
+  Wells that do not correspond to any gene, should be labelled with <b>NA</b> inside the 16x24 frame. 
   
   <h4> Samples.csv </h4> 
   Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well. Based on users choice, input has to be further specified. Take a look at corresponding files for understanding: <br> <br>
