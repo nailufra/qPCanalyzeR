@@ -15,6 +15,8 @@
   <h4> Samples.csv </h4> 
   Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well.<br>
   Based on users choice, input has to be further specified: <br>
-  * Multiple Biological Replicated: WT@Rep1, WT@Rep2, ... (see e.g. '.../biolrep/tc_Samples.csv')
+  * Biological replicates: Specify with @Rep1,@Rep2,..., @RepN (see e.g. '.../biolrep/tc_Samples.csv')<br>
+  <b>Important:</b> It has to be named exactly @RepN in order to be recognized as biological replicate by the program
+  * TimeCourse: Specifiy with 
   
   
