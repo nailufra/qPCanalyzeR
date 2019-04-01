@@ -42,6 +42,6 @@
   
   <h2> qPCanalyzeR output </h2>
   <h4> plateView_rawCt </h4>
-  ![Screenshot](https://github.com/nailufra/qPCanalyzeR/blob/master/screenshots/plateView_Ct.png?raw=true)
+  ![Screenshot](url:https://github.com/nailufra/qPCanalyzeR/blob/master/screenshots/plateView_Ct.png?raw=true)
   
   
