@@ -2,16 +2,19 @@
 ###### https://github.com/nailufra/qPCanalyzeR
 ###### Only for non-commercial use
 
+#remove old variables
+rm(list=ls())
+
 ######################################################### BEGIN: USER INPUT AREA #################################################################
 
 #name of your experiment (required for output directory) [string]
 experiment_name <- "my_test"
 
 #specify your working directory (directory where results are exported to) (e.g. "/home/user/.../") [string]
-setwd("/home/julian/pCloudDrive//qPCanalyzeR/qPCanalyzer_testdata/one_plate/timecourse_biolrep/")
+setwd("/home/julian/pCloudDrive//qPCanalyzeR/qPCanalyzer_testdata/two_plates/timecourse_biolrep/")
 
 #number of 384-well plates used in this experiment (required for plate input) [integer]
-total_plate_count <- 1
+total_plate_count <- 2
 
 # specify the gene treated as housekeeping gene, i.e. expression level of this gene is set to 100%.
 # Expression of other genes is set in relation to it. Make sure it is written exactly as in your GenesPlateView file (e.g. "ACTIN") [string]
@@ -55,7 +58,6 @@ biol_replicates <- FALSE
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-library(ggforce)
 library(stringr)
 library(plotrix)
 #################################
@@ -153,8 +155,8 @@ modify_data_frame()
 
 # Fill DataFrame with values 
 fill_data_frame <- function(your_col,your_input){
+  counter = 1
   for (z in 1:total_plate_count){
-    counter = 1
     for (i in 1:nrow(your_input[[z]])){
       for (j in 1:length(your_input[[z]])){
         plate_information[counter, your_col] <<- as.character(your_input[[z]][i,j])
@@ -185,25 +187,24 @@ plate_information <- plate_information %>%
 
 # 7) PLATE INFORMATION PLOTS
 ######################################
-info_plot <- function(usedsamples){
+info_plot <- function(usedsamples, df){
   {
     if (!usedsamples){
-      p = ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, colour = Gene)) + 
-          geom_text(label = round(plate_information$Ct,2), size = 3.75)}
+      p = ggplot(df, aes(x = max(as.integer(Column)/2), y = 20, colour = Gene)) + 
+          geom_text(label = round(df$Ct,2), size = 3.75)}
     
     else{
-      p = ggplot(plate_information, aes(x = max(as.integer(Column)/2), y = 20, fill = used_in_analysis)) + 
+      p = ggplot(df, aes(x = max(as.integer(Column)/2), y = 20, fill = used_in_analysis)) + 
           geom_rect(aes(xmin=0, xmax=max(as.integer(Column)) , ymin=0, ymax=20)) + 
-          geom_text(y=10, label = plate_information$input_name, size = 1, angle = 45, color = "black")}
+          geom_text(y=10, label = df$input_name, size = 1, angle = 45, color = "black")}
     
   }
   
   p = p + 
-    facet_wrap_paginate(~cut:Plate) + 
     facet_grid(Row~Column, switch = "y") +
     ylab("") +
     scale_colour_brewer(palette = "Dark2") +
-    ggtitle(paste(experiment_name,"\n","Plate Overview: Raw Ct values - Plate",plate_information$Plate)) +
+    ggtitle(paste(experiment_name,"\n","Plate Overview: Raw Ct values - Plate",df$Plate)) +
     
     theme(axis.text = element_text(size=7, color="black"),
           plot.title = element_text(hjust = 0.5, size= 15),
@@ -218,8 +219,14 @@ info_plot <- function(usedsamples){
   
 }
 
-p1 <- info_plot(FALSE)
-p2 <- info_plot(TRUE)
+# all infoplots
+plate_plot <- list()
+used_plot <- list()
+
+for (i in 1:total_plate_count){
+  plate_plot[[i]] <- info_plot(FALSE, plate_information[plate_information$Plate == i,])
+  used_plot[[i]] <- info_plot(TRUE, plate_information[plate_information$Plate == i,])
+}
 ############################################################
 
 
@@ -269,9 +276,9 @@ for (i in 1:nrow(plate_information)){
 ###removes all rows labelled with NA in "Gene"
 plate_information <- plate_information[!is.na(plate_information$Gene),]
 
-##get all technical
+#try for multiple plates
 plate_information <- plate_information %>%
-  group_by(Gene,Samples,time_point, biol_rep, Plate) %>%
+  group_by(Gene,Samples,time_point, biol_rep) %>%
   mutate(tech_rep = row_number()) %>%
   as.data.frame()
 
@@ -408,10 +415,17 @@ export_plots <- function(plot, name, format){
   ggsave(paste(experiment_name,"_Results/",experiment_name,"_",name,format,sep = ""), plot, width = 297, height = 210, units = "mm")
 }
 
-export_plots(p1,"plateOverview",".pdf")
-export_plots(p2,"usedSamples",".pdf")
+#export result plots
 export_plots(p3,"relExp_facet",".pdf")
 export_plots(p4,"relExp",".pdf")
 export_plots(p5,"ddCt_facet",".pdf")
 export_plots(p6,"ddCt",".pdf")
 
+#export info plots
+for(i in 1:length(plate_plot)){
+  export_plots(plate_plot[[i]],paste0("plateView_rawCt_plate",i),".pdf")
+  export_plots(used_plot[[i]],paste0("plateView_usedInAnalysis_plate",i),".pdf")
+}
+
+#export csv
+write.csv(plate_information,(paste0(experiment_name,"_Results/",experiment_name,"_allInformation.csv")))

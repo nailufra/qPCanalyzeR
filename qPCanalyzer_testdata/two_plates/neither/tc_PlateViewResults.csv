@@ -1,0 +1,65 @@
+,,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24
+A,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+A,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+A,Cq,23,23,24,38,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+A,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+B,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+B,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+B,Cq,23,"22,5",23,38,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+B,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+C,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+C,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+C,Cq,30,30,29,37,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+C,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+D,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+D,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+D,Cq,"29,5",29,"28,7",36,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+D,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+E,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+E,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+E,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+E,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+F,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+F,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+F,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+F,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+G,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+G,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+G,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+G,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+H,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+H,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+H,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+H,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+I,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+I,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+I,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+I,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+J,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+J,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+J,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+J,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+K,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+K,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+K,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+K,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+L,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+L,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+L,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+L,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+M,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+M,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+M,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+M,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+N,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+N,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+N,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+N,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+O,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+O,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+O,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+O,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+P,Content,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn,Unkn
+P,Sample,,,,,,,,,,,,,,,,,,,,,,,,
+P,Cq,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
+P,copy number,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.,n. def.
