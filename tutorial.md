@@ -14,9 +14,9 @@
   
   <h4> Samples.csv </h4> 
   Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well.<br>
-  Based on users choice, input has to be further specified: <br>
-  * Biological replicates (BR): Specify with mandatory parameter WT@Rep1,WT@Rep2,..., WT@RepN (e.g. '.../biolrep/tc_Samples.csv')<br>
-  * Time course (TC): Specifiy with parameter @1, @Time1, @10min (e.g. '.../timecourse/tc_Samples.csv')
+  Based on users choice, input has to be further specified. Take a look to the corresponding files: <br>
+  * Biological replicates (BR): Specify with mandatory parameter WT@Rep1,WT@Rep2,..., WT@RepN <br>
+  * Time course (TC): Specifiy with parameter @1, @Time1, @10min <br>
   * BR + TC: Specify with both WT
   
   
