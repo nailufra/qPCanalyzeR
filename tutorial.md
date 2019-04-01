@@ -12,4 +12,5 @@
   User-created file of 16x24 cells providing information about genes-of-interest (e.g. 'ACTIN') in the corresponding well. Wells that do not correspond to any gene, should be labelled with <b>'NA'</b> inside the 16x24 frame. 
   
   <h4> Samples </h4> 
+  User-created file of 16x24 cells providing information about used cDNA (e.g. 'WT') in the corresponding well. Wells that do not correspond to any gene, should be labelled with <b>'NA'</b> inside the 16x24 frame.<br>
   
