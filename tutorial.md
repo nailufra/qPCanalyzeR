@@ -1,4 +1,7 @@
 <h1> Tutorial </h1>
-  This tutorial should give you some basic understanding of how qPCanalyzeR works. 
+  This short tutorial uses a test data set provided in the directory 'qPCanalyzer_testdata'. 
   
-  <h2> Prepare Input Files </h2>
+  <h2> Input Files </h2>
+  Regardless of the subdirectory in 'qPCanalyzer_testdata' you are looking at, you will realize that we always
+  have to provide three input files.
+  
