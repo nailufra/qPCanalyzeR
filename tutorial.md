@@ -30,8 +30,12 @@
   
   <h2> Parameter Adjustment </h2>
   <h4> mandatory parameters </h4>
-  In the input area of the program you have to specify name of experiment, working directory, number of 384-well plates used in this experiment ('total_plate_count'), housekeeping gene (required for further normalization), samples you would like to exclude from you analyses (e.g. negative control, multiple selection possible), comparator (e.g. "WT"), 'first_time_point' (timepoint that should be used for comparison).
+  In the input area of the program you have to specify name of experiment, working directory, number of 384-well plates used in this experiment ('total_plate_count'), housekeeping gene (required for further normalization), samples you would like to exclude from you analyses (e.g. negative control, multiple selection possible), comparator (e.g. "WT"), 'first_time_point' (timepoint that should be used for comparison). 'output_format' is required to save your plots in correspoding format. 
   
   <h4> optional parameters </h4>
   By specifying 'ignore_genes' you can exclude (multiple) genes from analysis. Increase size of single scatters and lines by changing 'point_size' or 'line_size', respectively.
   
+  <h2> Run analysis </h2>
+  If you've finished parameter adjustment, mark the complete code and run it. <br>
+  You will be prompted to choose your input files now. If you pre-defined 'total_plate_count' as '1', first prompt will ask for your PlateViewResults.csv, second prompt for Samples.csv and third prompt for Genes.csv. If you pre-defined 2 plates, you will be asked twice for PlateViewResults_1.csv and PlateViewResults_2.csv, then for Samples_1.csv, Samples_2.csv and so on.<br> <br>
+  Afterwards, statistical analysis and plotting might take some seconds. You will find results in a subdirectory of your pre-defined working directory. 
