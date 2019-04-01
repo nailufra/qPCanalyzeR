@@ -6,7 +6,7 @@
   have to provide three basic input files in <b>comma-delimited format</b>: <br>
   
   <h4> PlateViewResults </h4> 
-  Output file created by BioRad machine.
+  Output file created by BioRad machine. Only use the plate view file, not the other formats.
   
   <h4> Genes </h4>
   User-created file of 16x24 cells providing information about genes-of-interest (e.g. 'ACTIN') in the corresponding well. Wells that do not correspond to any gene, should be labelled with <b>'NA'</b> inside the 16x24 frame. 
