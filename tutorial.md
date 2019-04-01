@@ -24,6 +24,6 @@
   <h4> mandatory parameters </h4>
   In the input area of the program you have to specify name of experiment, working directory, number of 384-well plates used in this experiment ('total_plate_count'), housekeeping gene (required for further normalization), samples you would like to exclude from you analyses (e.g. negative control, multiple selection possible), comparator (e.g. "WT"), 'first_time_point' (timepoint that should be used for comparison).
   
-  <h4> optional parameters </h4>
+  <h4> optional parameters </h4> <br>
   By specifying 'ignore_genes' you can exclude (multiple) genes from analysis. Increase size of single scatters and lines by changing 'point_size' or 'line_size', respectively.
   
