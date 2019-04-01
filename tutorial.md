@@ -13,7 +13,7 @@
   Wells that do not correspond to any gene, should be labelled with <b>NA</b> inside the 16x24 frame. 
   
   <h4> Samples.csv </h4> 
-  Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well. Based on users choice, input has to be further specified. Take a look at corresponding files for understanding: <br> <br>
+  Same as Genes.csv, but with cDNA (e.g. 'WT') instead of genes-of-interest in corresponding well. Based on users choice, input has to be further specified. Take a look at corresponding files for further help: <br> <br>
   * Biological replicates (BR): Specify with mandatory parameter: WT@Rep1, WT@Rep2, ..., WT@RepN <br>
   * Time course (TC): Specifiy with parameter: WT@1, WT@Time1, WT@10min etc. <br>
   * BR + TC: Specify with both: WT@10min@Rep1, WT@Time1@Rep2 etc. <br>
