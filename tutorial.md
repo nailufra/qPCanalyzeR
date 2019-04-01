@@ -42,7 +42,7 @@
   
   <h2> qPCanalyzeR output </h2>
   <h4> plateView_rawCt </h4>
-  <img src="screenshots/plateView_Ct.png"> <br>
+  <img src="/qPCanalyzer_testdata/one_plate/timecourse_biolrep/my_test_Results/my_test_plateView_rawCt_plate1.pdf"> <br>
   
   <h4> plateView_usedInAnalysis </h4>
   <img src="screenshots/usedInAnalysis.png">
